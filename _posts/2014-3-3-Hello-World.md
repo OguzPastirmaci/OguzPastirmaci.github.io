@@ -1,10 +1,10 @@
 ---
 layout: post
-title: You're up and running!
+title: Creating a Shared Access Signature (SAS) using Azure Cross Plaftorm CLI
 ---
 
-Next you can update your site name, avatar and other options using the _config.yml file in the root of your repository (shown below).
+Recently I needed to create a SAS token using Azure Cross Platform CLI.
 
-![_config.yml]({{ site.baseurl }}/images/config.png)
+Below is a very simple shell script to create the token:
 
-The easiest way to make your first post is to edit this one. Go into /_posts/ and update the Hello World markdown file. For more instructions head over to the [Jekyll Now repository](https://github.com/barryclark/jekyll-now) on GitHub.
+{% gist 628a907f0be57ed4b47c %}
