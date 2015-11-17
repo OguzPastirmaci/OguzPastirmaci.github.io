@@ -3,8 +3,6 @@ layout: post
 title: Using Azure cross-platform CLI within shell scripts
 ---
 
-### Using Azure cross-platform CLI within shell scripts
-
 The Azure cross-platform CLI (I will call it Xplat CLI) provides a set of commands for working with the Azure Platform and it works on Linux, Mac and Windows.
 
 Xplat CLI provides much of the same functionality found in the Azure Management Portal, such as the ability to manage websites, virtual machines, mobile services, SQL Database and other services provided by the Azure platform. You may visit the [repository in Github](https://github.com/Azure/azure-xplat-cli) to get more information about the Xplat CLI. 
@@ -36,7 +34,7 @@ Let's take a look at the command:
 
 1. List all the VMs
 2. Pipe the list of the VMs to *grep* to match all the lines with the word *Stopped*.
-3. Then pipe to *awk* which will run `azure vm start $2` command for each VM from step 2.
+3. Then pipe to *awk* which will run `azure vm start $2` command for each VM from step 2. Remember $2 is the second column in the output of `azure vm list` and that column is the name of the VMs.
 
 One thing to note here is that I used *Stopped* as the status. This will start all the stopped VMs (*Stopped* and *StoppedDeallocated* status) regardless how the VM was shutdown. The way you used to shut down the VM is important about pricing. Check [this link](https://azure.microsoft.com/en-us/documentation/articles/virtual-machines-questions/#how-does-azure-charge-for-my-vm) for info.
 
@@ -51,7 +49,7 @@ Very similar to the previous command but this time it lists the running VMs (VMs
 
 #### Simple bash script with a menu to start or shutdown the VMs
 
-And here's a very basic bash script with a menu to start or stop all the VMs in your Azure account.
+And here's a very basic bash script that shows a menu to start or stop all the VMs in your Azure account.
 
 {%gist eb79cf9f93827a3a2322 %}
 
