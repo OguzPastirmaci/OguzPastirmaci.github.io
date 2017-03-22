@@ -1,5 +1,3 @@
-# How to copy from AWS S3 to Azure Storage
-
 Recently, I needed to find a way to copy the entire content of an S3 bucket that has over 160,000 files to Azure blob storage. You can always write your own app to accomplish this and there's a couple of examples available. But for my case, I was looking for a ready, command line option. Here's what I tried:
 
 Let's assume I have the following:
