@@ -38,11 +38,15 @@ You'll need to make sure you have [configured](http://docs.aws.amazon.com/cli/la
 
 First let's download from S3 using AWS CLI. Notice that I used the `--delete` parameter to make sure if there's any files that no longer exists in the source (`my-s3-bucket`) are also deleted from the target (`my-local-folder`).
 
-`aws s3 sync s3://my-s3-bucket my-local-folder --delete`
+```
+aws s3 sync s3://my-s3-bucket my-local-folder --delete
+```
 
 Then I'll upload this files to Azure storage using blobxfer. Blobxfer also has a `--delete` parameter, doing exactly the same thing with AWS CLI. The `--upload` parameter tell blobxfer to upload the files. If you don't add it, it will get the files *from* Azure storage (`my-azure-storage-account`) instead of uploading to it.
 
-`blobxfer my-azure-storage-account my-azure-storage-container my-local-folder --upload --delete --storageaccountkey my-azure-storage-access-key`
+```
+blobxfer my-azure-storage-account my-azure-storage-container my-local-folder --upload --delete --storageaccountkey my-azure-storage-access-key
+```
 
 
 ## AzureCopy
@@ -65,7 +69,9 @@ Download the latest [release](https://github.com/kpfaulkner/azurecopy/releases) 
 
 Then run the following command. Please note that this will use the local machine's resources, so it will be downloading from S3 and uploading to Azure. You can add the `-blobcopy` option to copy directly from S3 to Azure storage, however, in my case that did not created the folder structure recursively.
 
-`azurecopy -i https://my-s3-bucket.s3.amazonaws.com/ -o https://my-azure-storage-account.blob.core.windows.net/my-azure-storage-container`
+```
+azurecopy -i https://my-s3-bucket.s3.amazonaws.com/ -o https://my-azure-storage-account.blob.core.windows.net/my-azure-storage-container
+```
 
 ## AWS CLI S3 Sync command & AzCopy
 
@@ -84,9 +90,13 @@ If you're on Windows, you can use this path, too.
 
 Since AWS CLI is multiplatform, the first step is the same:
 
-`aws s3 sync s3://my-s3-bucket my-local-folder --delete`
+```
+aws s3 sync s3://my-s3-bucket my-local-folder --delete
+```
 
 Then use AzCopy to upload to Azure Storage. Notice the `/S` parameter. That uploads the contents of the specified directory to Azure storage recursively.
 
-`AzCopy /Source:C:my-local-folder /Dest:https://my-azure-storage-account.blob.core.windows.net/my-azure-storage-container /DestKey:my-azure-storage-access-key /S`
+```
+AzCopy /Source:C:my-local-folder /Dest:https://my-azure-storage-account.blob.core.windows.net/my-azure-storage-container /DestKey:my-azure-storage-access-key /S
+```
 
