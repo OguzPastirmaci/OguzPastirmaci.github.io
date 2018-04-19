@@ -2,9 +2,9 @@ Hear how to transform your IT operations through applying DevOps practices. Join
 
 Find a topic:
 
-[02:35] Applying DevOps practices to IT ops
-[04:17] The Release Pipeline Model
-[06:20] Benefiting from source control
+[02:35] Applying DevOps practices to IT ops  
+[04:17] The Release Pipeline Model  
+[06:20] Benefiting from source control  
 [13:24] Using build service for all infrastructure changes
 [19:35] Automating testing for end-to-end validation
 [28:07] Script creation and validation
